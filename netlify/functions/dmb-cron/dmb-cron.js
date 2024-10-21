@@ -5,7 +5,7 @@ const { schedule } = require("@netlify/functions");
 module.exports.handler = schedule("* * * * *", async (event) => {
   const eventBody = JSON.parse(event.body);
   console.log(`Next function run at ${eventBody.next_run}.`);
-  await fetch("https://dmb-api.onrender.com/store/store").then(() => {
+  await fetch("https://dmb-api.onrender.com/store").then(() => {
     console.log("Fetched to dmb server!");
   });
 
